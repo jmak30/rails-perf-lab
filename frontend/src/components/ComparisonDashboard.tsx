@@ -49,7 +49,7 @@ export default function ComparisonDashboard() {
     // V1 request — may timeout or return 500 on large datasets
     try {
       const controller = new AbortController();
-      const timeout = setTimeout(() => controller.abort(), 120000);
+      const timeout = setTimeout(() => controller.abort(), 30000);
       const v1Url = `${ep.v1}${pageSuffix}`;
       const url = new URL(v1Url, window.location.origin);
       url.searchParams.set('profile', 'true');
@@ -76,7 +76,7 @@ export default function ComparisonDashboard() {
         v1MiniProfiler = await fetchMiniProfilerResult(v1MpId);
       }
     } catch {
-      v1Error = 'Timeout (>2min)';
+      v1Error = 'Timeout (>30s)';
     }
 
     // V2 cold cache
