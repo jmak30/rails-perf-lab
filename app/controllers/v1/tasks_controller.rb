@@ -29,9 +29,7 @@ module V1
     private
 
     def set_task
-      @task = Task.find_by!(id: params[:id])
-    rescue ActiveRecord::RecordNotFound
-      head :not_found
+      @task = Task.find(params[:id])
     end
 
     def task_params

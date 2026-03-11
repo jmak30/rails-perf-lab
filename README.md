@@ -50,6 +50,18 @@ All endpoints are available under `/v1` (unoptimized) and `/v2` (optimized):
 
 Append `?profile=true` to any request to get inline profiling data (duration, SQL queries, cache stats).
 
+## Rate Limiting
+
+Rack::Attack provides three throttle tiers:
+
+| Rule | Limit | Purpose |
+|---|---|---|
+| General | 300 req / 5 min per IP | Baseline protection |
+| Index endpoints | 60 req / 1 min per IP | Guards expensive collection queries |
+| Writes | 30 req / 1 min per IP | Prevents abuse of POST/PATCH/DELETE |
+
+Throttled requests receive a `429` JSON response with `Retry-After` and `X-RateLimit-*` headers. Suspicious paths (path traversal, `.php` probes) trigger an auto-ban via `Allow2Ban`.
+
 ## Benchmark
 
 ```bash

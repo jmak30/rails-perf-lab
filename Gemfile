@@ -9,6 +9,7 @@ gem "solid_queue"
 gem "bootsnap", require: false
 gem "benchmark"
 gem "jsonapi-serializer"
+gem "rack-attack"
 
 group :development, :test do
   gem "debug", platforms: %i[ mri windows ], require: "debug/prelude"

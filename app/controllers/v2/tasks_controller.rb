@@ -76,8 +76,6 @@ module V2
 
     def set_task
       @task = Task.find(params[:id])
-    rescue ActiveRecord::RecordNotFound
-      head :not_found
     end
 
     def task_params

@@ -48,8 +48,6 @@ module V2
 
     def set_user
       @user = User.find(params[:id])
-    rescue ActiveRecord::RecordNotFound
-      head :not_found
     end
 
     def page_size_param
