@@ -1,8 +1,8 @@
 require "benchmark"
 
-USER_COUNT = 10_000
-TASK_COUNT = 100_000
-COMMENT_COUNT = 50_000
+USER_COUNT = 1_000
+TASK_COUNT = 10_000
+COMMENT_COUNT = 5_000
 BATCH_SIZE = 5_000
 
 puts "Clearing existing data..."
