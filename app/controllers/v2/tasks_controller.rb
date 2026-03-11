@@ -12,6 +12,16 @@ module V2
         Task.includes(:user)
       end
 
+      # Filter by status — uses the (user_id, completed) composite index
+      if params[:completed].present?
+        tasks = tasks.by_status(params[:completed] == "true")
+      end
+
+      # Filter overdue tasks — uses the due_date index
+      if params[:overdue] == "true"
+        tasks = tasks.overdue
+      end
+
       if params[:cursor].present?
         tasks = tasks.where("id > ?", params[:cursor])
       end

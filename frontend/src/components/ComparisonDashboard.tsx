@@ -21,6 +21,8 @@ interface ComparisonResult {
 
 const ENDPOINTS = [
   { label: 'Tasks Index', v1: '/v1/tasks', v2: '/v2/tasks' },
+  { label: 'Tasks (completed)', v1: '/v1/tasks', v2: '/v2/tasks?completed=true' },
+  { label: 'Tasks (overdue)', v1: '/v1/tasks', v2: '/v2/tasks?overdue=true' },
   { label: 'Users Index', v1: '/v1/users', v2: '/v2/users' },
   { label: 'Task Show', v1: '/v1/tasks/1', v2: '/v2/tasks/1' },
   { label: 'User Show', v1: '/v1/users/1', v2: '/v2/users/1' },

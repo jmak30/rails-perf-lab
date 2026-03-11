@@ -103,5 +103,29 @@ namespace :perf do
     end
 
     puts "=" * 78
+
+    puts "\n"
+    puts "=" * 78
+    puts "  EXPLAIN ANALYZE — Index Usage"
+    puts "=" * 78
+
+    explain_queries = {
+      "Full table scan (no filter)" =>
+        "SELECT * FROM tasks",
+      "Composite index (user_id, completed)" =>
+        "SELECT * FROM tasks WHERE user_id = #{sample_user.id} AND completed = false",
+      "Due date index (overdue)" =>
+        "SELECT * FROM tasks WHERE completed = false AND due_date < '#{Date.current}'"
+    }
+
+    explain_queries.each do |label, sql|
+      puts "\n  #{label}"
+      puts "  #{sql}"
+      puts "-" * 78
+      rows = ActiveRecord::Base.connection.execute("EXPLAIN ANALYZE #{sql}")
+      rows.each { |r| puts "  #{r['QUERY PLAN']}" }
+    end
+
+    puts "=" * 78
   end
 end
