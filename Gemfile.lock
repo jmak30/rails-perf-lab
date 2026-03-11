@@ -80,6 +80,7 @@ GEM
     ast (2.4.3)
     base64 (0.3.0)
     bcrypt_pbkdf (1.1.2)
+    benchmark (0.5.0)
     bigdecimal (4.0.1)
     bootsnap (1.23.0)
       msgpack (~> 1.2)
@@ -160,6 +161,7 @@ GEM
     marcel (1.1.0)
     mcp (0.7.1)
       json-schema (>= 4.1)
+    memory_profiler (1.1.0)
     mini_magick (5.3.1)
       logger
     mini_mime (1.1.5)
@@ -217,6 +219,8 @@ GEM
     raabro (1.4.0)
     racc (1.8.1)
     rack (3.2.5)
+    rack-mini-profiler (4.0.1)
+      rack (>= 1.2.0)
     rack-session (2.1.1)
       base64 (>= 0.1.0)
       rack (>= 3.0.0)
@@ -320,6 +324,7 @@ GEM
       net-sftp (>= 2.1.2)
       net-ssh (>= 2.8.0)
       ostruct
+    stackprof (0.2.28)
     stringio (3.2.0)
     thor (1.5.0)
     thruster (0.1.18)
@@ -352,6 +357,7 @@ PLATFORMS
   x86_64-linux-musl
 
 DEPENDENCIES
+  benchmark
   bootsnap
   brakeman
   bullet
@@ -360,13 +366,16 @@ DEPENDENCIES
   image_processing (~> 1.2)
   jsonapi-serializer
   kamal
+  memory_profiler
   pg (~> 1.1)
   puma (>= 5.0)
+  rack-mini-profiler
   rails (~> 8.1.2)
   rubocop-rails-omakase
   solid_cable
   solid_cache
   solid_queue
+  stackprof
   thruster
   tzinfo-data
 

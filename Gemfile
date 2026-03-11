@@ -32,6 +32,7 @@ gem "thruster", require: false
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 gem "image_processing", "~> 1.2"
 
+gem "benchmark"
 gem "jsonapi-serializer"
 
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin Ajax possible
@@ -51,4 +52,11 @@ group :development, :test do
   gem "rubocop-rails-omakase", require: false
 
   gem "bullet"
+
+  # Performance profiling — adds timing, SQL, and memory data to every response
+  gem "rack-mini-profiler"
+  # Optional: enables memory profiling in rack-mini-profiler
+  gem "memory_profiler"
+  # Optional: enables flamegraph generation for CPU profiling
+  gem "stackprof"
 end
