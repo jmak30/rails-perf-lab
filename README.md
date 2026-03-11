@@ -1,18 +1,8 @@
 # Rails Perf Lab
 
-A Rails API performance optimization showcase. The app exposes the same endpoints in two versions — V1 (unoptimized) and V2 (optimized) — with a React frontend that visualizes the performance difference using rack-mini-profiler and custom instrumentation.
+A Rails API performance optimization showcase. The app exposes the same endpoints in two versions — V1 (unoptimized) and V2 (optimized) — with a React frontend that visualizes the performance differences
 
 ![Performance Comparison Dashboard](screenshot.png)
-
-## What it demonstrates
-
-- **Cursor-based pagination** vs loading all records
-- **Per-record caching** with `Rails.cache.fetch` and `cache_key_with_version`
-- **HTTP conditional GETs** with `stale?` / ETags
-- **Eager loading** to prevent N+1 queries
-- **Bulk seeding** with `insert_all` at scale (160K records)
-- **rack-mini-profiler** integration for timing trees, SQL stack traces, and row counts
-- **Custom request profiling** via `ActiveSupport::Notifications`
 
 ## Tech stack
 
