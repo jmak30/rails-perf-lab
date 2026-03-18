@@ -13,6 +13,7 @@ export default defineConfig({
       '/v2': 'http://localhost:3000',
       '/mini-profiler-resources': 'http://localhost:3000',
       '/profiler': 'http://localhost:3000',
+      '/metrics': 'http://localhost:3000',
     },
   },
 })

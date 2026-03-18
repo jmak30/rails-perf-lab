@@ -15,6 +15,7 @@ Rails.application.routes.draw do
     end
   end
 
+  get "metrics", to: "metrics#index"
   delete "profiler/cache", to: "profiler#clear_cache"
   get "profiler/:id", to: "profiler#show"
 end

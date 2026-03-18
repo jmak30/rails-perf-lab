@@ -10,6 +10,7 @@ gem "bootsnap", require: false
 gem "benchmark"
 gem "jsonapi-serializer"
 gem "rack-attack"
+gem "prometheus-client", "~> 4.2"
 
 group :development, :test do
   gem "debug", platforms: %i[ mri windows ], require: "debug/prelude"

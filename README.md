@@ -11,6 +11,7 @@ A Rails API performance optimization showcase. The app exposes the same endpoint
 - React + TypeScript + Vite
 - Tailwind CSS + Recharts
 - rack-mini-profiler, Bullet
+- Prometheus + Grafana (monitoring)
 
 ## Setup
 
@@ -61,6 +62,21 @@ Rack::Attack provides three throttle tiers:
 | Writes | 30 req / 1 min per IP | Prevents abuse of POST/PATCH/DELETE |
 
 Throttled requests receive a `429` JSON response with `Retry-After` and `X-RateLimit-*` headers. Suspicious paths (path traversal, `.php` probes) trigger an auto-ban via `Allow2Ban`.
+
+## Monitoring (Prometheus + Grafana)
+
+The app exposes a `/metrics` endpoint in Prometheus text format with four metrics:
+- `http_requests_total` — request count by method, endpoint, status
+- `http_request_duration_seconds` — response time histogram (p50/p95/p99)
+- `http_errors_total` — 4xx/5xx error count
+- `sql_queries_total` — SQL queries per request
+
+```bash
+# Start Prometheus (localhost:9090) and Grafana (localhost:3001)
+docker compose up -d
+```
+
+Grafana ships with a pre-built dashboard. Login: `admin` / `admin`.
 
 ## Benchmark
 
